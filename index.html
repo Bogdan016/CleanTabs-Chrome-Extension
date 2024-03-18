@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CleanTabs</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/styles.css">
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <header class="p-4 bg-black text-white flex items-center">
+        <img src="assets/images/CleanTabsnobg.png" alt="Logo" class="logo mr-4">
+        <div>
+            <h1 class="text-2xl">CleanTabs</h1>
+            <p>This extension is designed to keep your workspace neat and easy to use.</p>
+        </div>
+    </header>
+    
+
+    <main class="p-4">
+        <div class="button-container mb-4 flex flex-col items-center justify-center">
+            <button id="create-group" class="mt-2 px-2 py-1 bg-blue-500 text-white rounded shadow w-48">Create New Groups</button>
+            <button id="create-bookmark" class="mt-2 px-2 py-1 bg-blue-500 text-white rounded shadow w-48">Create New Bookmarks</button>
+            <button id="show-statistics" class="mt-2 px-2 py-1 bg-blue-500 text-white rounded shadow w-48">Show Statistics</button>
+        </div>                   
+        <p id="tab-count" class="text-lg font-semibold text-black-500 text-center"> </p>
+        <p id="active-tab-count" class="text-lg font-semibold text-black-500 text-center"></p> </p>
+        <p id="inactive-tab-count" class="text-lg font-semibold text-black-500 text-center"></p> </p>
+
+    </main>
+
+    <footer>
+        <script src="popup.js"></script>
+        <script src="script.js"></script>
+
+    </footer>
+</body>
+</html>

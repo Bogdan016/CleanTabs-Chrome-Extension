@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "CleanTabs",
+  "version": "1.0",
+  "description": "An extension to organize your browser tabs",
+  "icons": {
+    "16": "assets/images/CleanTabsLogo16.jpg",
+    "48": "assets/images/CleanTabsLogo48.jpg",
+    "128": "assets/images/CleanTabsLogo128.jpg"
+  },
+  "permissions": ["tabs", "bookmarks"],
+  "action": {
+    "default_icon": "assets/images/CleanTabsLogo128.jpg",
+    "default_popup": "index.html",
+    "default_script": "script.js",
+    "content_security_policy": "script-src 'self' https://cdn.jsdelivr.net; object-src 'self'"
+  },
+  "background": {
+    "service_worker": "popup.js"
+  }
+}
