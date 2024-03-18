@@ -41,31 +41,46 @@ chrome.bookmarks.onCreated.addListener(function(id, bookmark) {
     }
 });
 
+// Function to organize bookmarks
 function organizeBookmarks() {
+    // Get the entire bookmark tree
     chrome.bookmarks.getTree(function(bookmarkTreeNodes) {
+        // Initialize an empty object to store bookmarks
         let bookmarks = {};
+
+        // Loop through each bookmark in the tree
         bookmarkTreeNodes.forEach(function(bookmark) {
+            // Check if the bookmark has a URL
             if (bookmark.url) {
+                // Create a new URL object from the bookmark's URL
                 let url = new URL(bookmark.url);
+                // Get the hostname from the URL
                 let host = url.hostname;
 
+                // If there's no array for this hostname yet, create one
                 if (!bookmarks[host]) {
                     bookmarks[host] = [];
                 }
 
+                // Add the bookmark to the array for its hostname
                 bookmarks[host].push(bookmark);
             }
         });
 
+        // Loop through each hostname in the bookmarks object
         for (let host in bookmarks) {
+            // Create a new bookmark folder with the hostname as the title
             chrome.bookmarks.create({title: host}, function(folder) {
+                // Loop through each bookmark for this hostname
                 bookmarks[host].forEach(function(bookmark) {
+                    // Move the bookmark into the new folder
                     chrome.bookmarks.move(bookmark.id, {parentId: folder.id});
                 });
             });
         }
     });
 }
+
 
 organizeBookmarks();
 
